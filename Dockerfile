@@ -2,18 +2,6 @@ FROM node:slim AS app
 
 # We don't want the standalone Chromium
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-# To be able to use env variables in a build process we need to set this madness
-ARG OUTPUT_FILE
-ENV OUTPUT_FILE $OUTPUT_FILE
-ARG HOMEASSISTANT_LOGIN_USER
-ENV HOMEASSISTANT_LOGIN_USER $HOMEASSISTANT_LOGIN_USER
-ARG HOMEASSISTANT_LOGIN_PASS
-ENV HOMEASSISTANT_LOGIN_PASS $HOMEASSISTANT_LOGIN_PASS
-ARG HOMEASSISTANT_URL
-ENV HOMEASSISTANT_URL $HOMEASSISTANT_URL
-ARG SLEEP
-ENV SLEEP $SLEEP
-
 
 # Install Google Chrome Stable and fonts
 # Note: this installs the necessary libs to make the browser work with Puppeteer.
