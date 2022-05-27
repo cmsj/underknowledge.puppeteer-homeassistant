@@ -1,11 +1,8 @@
 const puppeteer = require('puppeteer');
 
-const login_page = process.env.login_page || "https://homeassistant.underknowledge.cc/";
-const login_username = process.env.login_username || "root";
-const login_password = process.env.login_password || "un52SDvVfVOscyRVKi0D46p4NPbd8GXrDXFtHSd";
-
-
-//login_page="https://homeassistant.underknowledge.cc/" login_username="root" login_password="un52SDvVfVOscyRVKi0D46p4NPbd8GXrDXFtHSd" ha_test.js
+const login_page = process.env.login_page || "https://homeass.chrul.tenshu.net/lovelace-kindle/0";
+const login_username = process.env.login_username || "kindle";
+const login_password = process.env.login_password || "kindle123";
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -34,12 +31,14 @@ function sleep(ms) {
   const loginHandle = await page.evaluateHandle(`document.querySelector("body > div > ha-authorize").shadowRoot.querySelector("ha-auth-flow").shadowRoot.querySelector("form > div > mwc-button")`);
   await loginHandle.click();
 
+  console.log("Logging in...")
+
     // Set width.
     // 758x1024
   // await page.setViewport({ width: 1920, height: 600 });
 
-  const desiredWidth = 758;
-  const desiredHeight = 1024;
+  const desiredWidth = 800;
+  const desiredHeight = 600;
   const ScaleFactor = 1.35;
 
   await page.setViewport({ width: parseInt(desiredWidth / ScaleFactor), 
@@ -53,7 +52,7 @@ function sleep(ms) {
     console.log("Never triggers because it fails");
     await sidebarHandle.click();
   } catch(e) {
-      // console.log("caught: ", e);
+      console.log("caught: ", e);
   }
 
   await sleep(2500); // I guess the page resize does not render this fast
