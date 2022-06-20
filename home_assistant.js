@@ -1,8 +1,8 @@
 const puppeteer = require('puppeteer');
 
-const login_page = process.env.login_page || "https://homeass.chrul.tenshu.net/lovelace-kindle/0";
-const login_username = process.env.login_username || "kindle";
-const login_password = process.env.login_password || "kindle123";
+const login_page = process.env.login_page || "about:blank";
+const login_username = process.env.login_username || "username";
+const login_password = process.env.login_password || "password";
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
