@@ -48,9 +48,9 @@ function sleep(ms) {
   try {
     await sleep(1500); // lovelace has to load a lot of pictures
 
-    const sidebarHandle = await page.evaluateHandle(`document.querySelector("body > home-assistant").shadowRoot.querySelector("home-assistant-main").shadowRoot.querySelector("#drawer > ha-sidebar").shadowRoot.querySelector("div.menu > ha-icon-button").shadowRoot.querySelector("mwc-icon-button").shadowRoot.querySelector("button")`);
-    console.log("Never triggers because it fails");
-    await sidebarHandle.click();
+//    const sidebarHandle = await page.evaluateHandle(`document.querySelector("body > home-assistant").shadowRoot.querySelector("home-assistant-main").shadowRoot.querySelector("#drawer > ha-sidebar").shadowRoot.querySelector("div.menu > ha-icon-button").shadowRoot.querySelector("mwc-icon-button").shadowRoot.querySelector("button")`);
+//    console.log("Never triggers because it fails");
+//    await sidebarHandle.click();
   } catch(e) {
       console.log("caught: ", e);
   }
@@ -77,8 +77,8 @@ function sleep(ms) {
         deviceScaleFactor: window.devicePixelRatio,
       };
     });
-  
-    console.log('Dimensions:', dimensions);
+
+//    console.log('Dimensions:', dimensions);
 
     // Screenshot and exit.
     await page.screenshot({ 
@@ -86,6 +86,7 @@ function sleep(ms) {
       fullPage: false 
       // fullPage: true 
     });
+    console.log("Saved screenshot to home_assistant.png");
 
   // nice but no 
   // let [height, width] = await page.evaluate(() => {
